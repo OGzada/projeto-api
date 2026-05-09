@@ -211,17 +211,3 @@ O teste atual (`contextLoads`) verifica se o contexto do Spring Boot consegue in
 
 Durante os testes, o projeto usa H2 em memoria por meio de `src/test/resources/application.properties`. Assim, a suite de testes nao depende de um MySQL local em execucao.
 
-## Observacoes tecnicas
-
-- O `ProdutoRepository` estende `JpaRepository<Produto, Long>`, entao o projeto ja possui metodos prontos como `save`, `deleteById`, `findById` e `findAll`.
-- A propriedade `spring.jpa.hibernate.ddl-auto=update` faz o Hibernate atualizar a estrutura da tabela conforme a entidade. Isso e pratico em desenvolvimento, mas em producao normalmente se recomenda usar migrations, como Flyway ou Liquibase.
-- A senha do banco nao fica fixa no codigo. Use a variavel `DB_PASSWORD` para configurar esse valor localmente.
-
-## Proximos passos sugeridos
-
-- Adicionar endpoint para listar produtos (`GET /produto`).
-- Adicionar endpoint para buscar produto por ID (`GET /produto/{id}`).
-- Adicionar endpoint para atualizar produto (`PUT /produto/{id}`).
-- Criar validacoes com Bean Validation.
-- Melhorar o tratamento de erros para casos como produto inexistente.
-- Adicionar testes para controller, service e repository.
